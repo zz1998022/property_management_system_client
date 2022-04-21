@@ -17,7 +17,7 @@
 <script lang="ts">
 // import { UserOutlined } from "@ant-design/icons-vue";
 import { computed, defineComponent } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import { useRouter } from "vue-router";
 import { message } from "ant-design-vue";
 export default defineComponent({

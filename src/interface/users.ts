@@ -4,11 +4,13 @@ export interface RegisterUsers {
   email: string;
 }
 
-export interface usersInter {
-  profile: {
-    username: string;
-    email: string;
-    avatar: string;
-    token: string;
-  };
+export interface UsersInter {
+  profile: Users;
+}
+
+export interface Users {
+  username: string;
+  email: string;
+  avatar: string;
+  token: string;
 }

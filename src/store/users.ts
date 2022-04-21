@@ -1,17 +1,8 @@
-import { usersInter } from "@/interface/users";
-
-export interface User {
-  namespaced: boolean;
-  state: () => usersInter;
-  mutations: {
-    setProfile(state: usersInter, profile: usersInter): void;
-    logout(state: usersInter): void;
-  };
-}
+import type { UsersInter, Users } from "@/interface/users";
 
 export const users = {
   namespaced: true,
-  state: (): usersInter => {
+  state: (): UsersInter => {
     return {
       profile: {
         username: "",
@@ -23,14 +14,13 @@ export const users = {
   },
   mutations: {
     // 保存用户信息
-    setProfile(state: any, profile: usersInter) {
+    setProfile(state: UsersInter, profile: Users) {
       state.profile = profile;
-      console.log(state);
     },
     // 退出登录
-    logout(state: any) {
+    logout(state: UsersInter) {
       for (const key in state.profile) {
-        state.profile[key] = "";
+        state.profile[key as keyof Users] = "";
       }
     },
   },

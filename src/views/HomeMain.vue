@@ -29,8 +29,8 @@
 
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from "vue";
-import { useStore } from "vuex";
 import * as echarts from "echarts";
+import { useStore } from "@/store";
 import { getCommunityName } from "@/api/community";
 
 export default defineComponent({
