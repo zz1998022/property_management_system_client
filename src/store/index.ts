@@ -1,15 +1,17 @@
-import { createStore, useStore } from "vuex";
-import { users, type User } from "@/store/users";
+import { InjectionKey } from "vue";
+import { createStore, useStore as baseUseStore, Store } from "vuex";
 import createPersistedState from "vuex-persistedstate";
-import { usersInter } from "./interface/users";
+import { users } from "@/store/users";
+import { UsersInter } from "@/interface/users";
 
-export interface rootState {} // interface IState {}
-couesrs: Usernst RootState = {
-  profile: user,
-};
-<>rootState
-export default createStore<usersInter>({
-  mousers, {
+export interface State {
+  users: UsersInter;
+}
+
+export const key: InjectionKey<Store<State>> = Symbol();
+
+export const store = createStore<State>({
+  modules: {
     users,
   },
   plugins: [
@@ -19,3 +21,7 @@ export default createStore<usersInter>({
     }),
   ],
 });
+
+export function useStore() {
+  return baseUseStore(key);
+}

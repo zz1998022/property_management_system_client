@@ -127,7 +127,7 @@ import {
   ref,
   UnwrapRef,
 } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "@/store";
 import {
   UserOutlined,
   LockOutlined,
@@ -201,6 +201,7 @@ function useLogin(loginLoading: UnwrapRef<any>) {
   const store = useStore();
   const router = useRouter();
   const loginRef = ref();
+
   // 表单数据
   const formState: UnwrapRef<FormState> = reactive({
     username: "",
